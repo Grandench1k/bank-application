@@ -1,13 +1,18 @@
 package grandench1k.springcorehomework;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import grandench1k.springcorehomework.listener.OperationsConsoleListener;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@ComponentScan
 public class SpringCoreHomeworkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCoreHomeworkApplication.class, args);
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(SpringCoreHomeworkApplication.class);
+        OperationsConsoleListener listener = context.getBean(OperationsConsoleListener.class);
+
     }
 
 }
